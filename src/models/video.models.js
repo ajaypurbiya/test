@@ -45,3 +45,4 @@ videoSchema.plugin(mongooseAggregatePaginate)
 
 
 export const Vodeo = mongoose.model("Video", videoSchema)
+

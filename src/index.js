@@ -1,13 +1,13 @@
-// require('dotenv').config({path: './env'})
+// require('dotenv').config({path: './.env'})
 import * as dotenv from "dotenv";
 dotenv.config();
 import connectDB from "./db/index.js";
 import { app } from "./app.js";
 
 
-// dotenv.config({
-  // path: './.env'   *- this is not work in my system ther is a one mistek is it .-*
-// })
+dotenv.config({
+  path: './.env'   //*- this is not work in my system ther is a one mistek is it .-*
+})
 
 connectDB()
 .then(() => {

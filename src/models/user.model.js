@@ -25,11 +25,11 @@ const userSchema = new Schema({
     index: true
   },
   avatar:{
-    type: String, // cloudnaru url
+    type: String, // cloudinary url
     required: true,
   },
   coverImage: {
-    type: String,
+    type: String,  // cloudinary url
   },
   watchHistory: [
     {
@@ -37,7 +37,7 @@ const userSchema = new Schema({
       ref: "Video"
     }
   ],
-  passwor: {
+  password: {
     type: String,
     required: [true, 'Password is required']
   },
@@ -61,13 +61,13 @@ userSchema.methods.isPasswordCorrect = async function(password) {
   return await bcrypt.compare(password, this.password)
 }
 
-userSchema.methods.generateAccessToken = function (){
+userSchema.methods.generateAccessToken = function(){
   return jwt.sign(
     {
       _id: this._id,
       email: this.email,
       username: this.username,
-      fullname: this.fullname
+      fullName: this.fullName
     },
     process.env.ACCESS_TOKEN_SECRET,
     {
@@ -75,7 +75,7 @@ userSchema.methods.generateAccessToken = function (){
     }
   )
 }
-userSchema.methods.generateRefreashToken = function (){
+userSchema.methods.generateRefreashToken = function(){
   return jwt.sign(
     {
       _id: this._id,

@@ -4,13 +4,9 @@ const asyncHandler = (requestHandler)  => {
   }
 }
 
-export { asyncHandler }
-
-
-
 // const asyncHandler = (fn) => () =>{ 
 //   try{
-
+//     await fn(req, res,next)
 //   } catch (error) {
 //     resizeBy.status(err.code || 500).json({
 //       success: false,
@@ -18,3 +14,6 @@ export { asyncHandler }
 //     })
 //   }
 // }
+
+
+export { asyncHandler }
