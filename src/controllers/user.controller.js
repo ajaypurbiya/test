@@ -178,7 +178,7 @@ const logoutUser = asyncHandler(async(req, res) => {
     req.user._id,     // quary 
     {
       $set: {
-        refreshToken: undefined
+        refreshToken: 1 // there is a oprator on mongoose parhaps of set and unset
       }
     },
     {
